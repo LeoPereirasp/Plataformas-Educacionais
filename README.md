@@ -28,7 +28,7 @@ Este repositório tem como objetivo centralizar e organizar **plataformas educac
 
 | Plataforma                 | Categoria/Foco             | Status         | Observações                                    |
 |----------------------------|-----------------------------|----------------|-----------------------------------------------|
-| Fundação Bradesco          | TI, Finanças, Idiomas       | ✅ Analisada    | Plataforma nacional robusta e gratuita         |
+| Fundação Bradesco          | TI, Finanças, Dados       | ✅ Analisada    | Plataforma nacional robusta e gratuita         |
 | FIAP ON                    | Inovação, Tecnologia        | ⏳ Em andamento| Conteúdo moderno e acessível                   |
 | Oracle Learning            | Programação, Banco de Dados | 🔍 A verificar | Cursos oficiais da Oracle                     |
 | Cisco Networking Academy   | Redes, Cibersegurança       | 🔍 A verificar | Certificação técnica reconhecida               |
