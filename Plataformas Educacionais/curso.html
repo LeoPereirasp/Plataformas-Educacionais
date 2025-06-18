@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Gratuitos - Fundação Bradesco</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        :root {
+            --bradesco-blue-dark: #003D7A; /* Azul Bradesco mais escuro */
+            --bradesco-blue-medium: #00509B; /* Azul principal Bradesco */
+            --bradesco-red: #E4002B; /* Vermelho vibrante Bradesco */
+            --bradesco-red-dark: #B50022; /* Vermelho para hover */
+            --light-bg: #F8F9FA; /* Fundo muito claro e limpo */
+            --card-bg: #ffffff; /* Fundo dos cards */
+            --dark-text: #212529; /* Texto principal mais escuro para contraste */
+            --soft-text: #495057; /* Texto de descrição suave */
+            --light-text: #ffffff; /* Texto em elementos escuros */
+            --border-radius: 12px;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra mais presente */
+            --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Sombra mais elevada no hover */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: var(--light-bg);
+            color: var(--dark-text);
+            overflow-x: hidden; /* Garante que não haja rolagem horizontal */
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--bradesco-blue-dark) 0%, var(--bradesco-blue-medium) 100%);
+            color: var(--light-text);
+            padding: 5rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            
+            background-size: 100px 100px;
+            background-repeat: repeat;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            margin-top: 20px;
+            font-weight: 300;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            color: var(--bradesco-blue-medium);
+            border-bottom: 4px solid var(--bradesco-blue-dark);
+            padding-bottom: 15px;
+            margin-bottom: 4rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 6px;
+            background-color: var(--bradesco-red);
+            border-radius: 3px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            padding: 0 15px;
+        }
+
+        .curso {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: unset;
+            border: 1px solid rgba(0, 80, 155, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curso::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--bradesco-blue-medium), var(--bradesco-blue-dark));
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        .curso:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--bradesco-blue-medium);
+        }
+
+        .curso h3 {
+            margin: 1rem 0 1.2rem;
+            color: var(--bradesco-blue-medium);
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap; /* Permite quebrar linha se o título for longo */
+        }
+
+        .curso .icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--bradesco-blue-dark);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            color: var(--light-text);
+            font-size: 28px;
+        }
+        
+        .curso p {
+            margin-bottom: 1.8rem;
+            color: var(--soft-text);
+            flex-grow: 1;
+            font-size: 1rem;
+        }
+
+        .level-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 8px;
+            text-transform: uppercase;
+            color: var(--light-text);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            /* REMOVIDO: white-space: nowrap; - Permite quebra de linha */
+            word-break: break-word; /* Permite quebrar palavras longas */
+        }
+
+        .level-tag.basic { background-color: #28a745; }
+        .level-tag.intermediate { background-color: #ffc107; }
+        .level-tag.advanced { background-color: #dc3545; }
+
+        .curso .link {
+            display: inline-block;
+            margin-top: auto;
+            padding: 1rem 2.5rem;
+            background: var(--bradesco-red);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-weight: 700;
+            letter-spacing: 0.7px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(228, 0, 43, 0.3);
+            text-transform: uppercase;
+        }
+
+        .curso .link:hover {
+            background: var(--bradesco-red-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(228, 0, 43, 0.4);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+            header p {
+                font-size: 1.2rem;
+            }
+            h2 {
+                font-size: 2.2rem;
+            }
+            .grid-container {
+                gap: 2rem;
+            }
+            .curso {
+                padding: 2rem;
+            }
+            .curso h3 {
+                font-size: 1.6rem;
+            }
+            .curso p {
+                font-size: 0.9rem;
+            }
+            .curso .link {
+                padding: 0.9rem 2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 4rem 1rem 2rem;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            section {
+                padding: 3rem 0.5rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+                margin-bottom: 3rem;
+            }
+            h2::after {
+                width: 80px;
+                height: 4px;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 10px;
+            }
+            .curso {
+                padding: 1.5rem;
+            }
+            .curso h3 {
+                font-size: 1.4rem;
+                /* flex-wrap: wrap; já está em h3 */
+            }
+            .curso .icon {
+                width: 35px;
+                height: 35px;
+                font-size: 22px;
+            }
+            .curso p {
+                font-size: 0.85rem;
+            }
+            .curso .link {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .level-tag {
+                font-size: 0.7em; /* Reduzido para telas menores */
+                padding: 3px 7px; /* Ajustado padding */
+                margin-left: 5px; /* Ajustado margin */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fundação Bradesco - Trilhas de Cursos Gratuitos</h1>
+        <p>Acelere sua carreira com trilhas completas em <strong>Banco de Dados</strong>, <strong>Power BI</strong>, <strong>Python</strong>, <strong>Segurança</strong>, <strong>TI</strong>, <strong>Office</strong> e muito mais.</p>
+        <p>(60 dias para fazer cada curso)</p>
+    </header>
+
+    <section>
+        <h2>Trilha Banco de Dados (38h)</h2>
+        <div class="grid-container">
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">database</span></span>
+                    Modelagem de Dados <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Neste curso, você será introduzido aos princípios básicos da <strong>modelagem de dados</strong>, o primeiro passo antes de criar um banco. Aprenderá a desenhar o esqueleto lógico do banco utilizando entidades, atributos e relacionamentos, além de aplicar regras de normalização para garantir a eficiência e consistência dos dados.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/modelagem-de-dados" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">data_object</span></span>
+                    Implementando Banco de Dados <span class="level-tag intermediate">Intermediário</span>
+                </h3>
+                <p>Aqui você passa do planejamento à <strong>criação prática</strong> de um banco de dados utilizando <strong>SQL</strong>. O curso ensina como criar tabelas, definir relacionamentos entre elas, aplicar restrições e realizar operações básicas como inserções, atualizações e exclusões.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/implementando-banco-de-dados" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">admin_panel_settings</span></span>
+                    Administrando Banco de Dados <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Este curso foca nas <strong>tarefas de um DBA (Administrador de Banco de Dados)</strong>: controlar acesso de usuários, realizar backups, otimizar desempenho e garantir a segurança. Ideal para quem busca atuar na gestão e manutenção de bancos de dados.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/administrando-banco-de-dados" target="_blank">Acessar curso</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Trilha Fundamentos do Power BI (37h)</h2>
+        <div class="grid-container">
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">analytics</span></span>
+                    Introdução à Análise de Dados <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Descubra as <strong>funções do analista de dados</strong> e os primeiros passos na criação de relatórios e dashboards impactantes com <strong>Power BI</strong>. Essencial para quem busca iniciar na área de Business Intelligence.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/introducao-a-analise-de-dados-microsoft-power-bi" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">transform</span></span>
+                    Preparando Dados para Análise <span class="level-tag intermediate">Intermediário</span>
+                </h3>
+                <p>Domine a <strong>extração, limpeza e transformação de dados</strong> com <strong>Power Query</strong>, garantindo que seus dados estejam prontos para análises precisas. Um passo crucial para a qualidade dos seus relatórios.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/preparando-dados-para-analise-microsoft-power-bi" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">insights</span></span>
+                    Modelando Dados no Power BI <span class="level-tag intermediate">Intermediário</span>
+                </h3>
+                <p>Aprofunde-se na <strong>criação de modelos de dados robustos</strong>, medidas com <strong>DAX</strong> e técnicas de <strong>otimização de desempenho</strong> para seus relatórios. Construa estruturas eficientes para suas análises.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/modelando-dados-no-power-bi" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">dashboard</span></span>
+                    Visualizando Dados no Power BI <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Aprenda a arte do <strong>design de relatórios</strong>, criando <strong>visuais interativos</strong> e dashboards que comunicam informações de forma clara e eficiente. Transforme dados em narrativas visuais.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/visualizando-dados-no-power-bi" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">psychology</span></span>
+                    Análise de Dados no Power BI <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Explore <strong>recursos avançados</strong> como o uso de <strong>IA</strong>, visuais de influenciadores e árvore hierárquica para análises mais profundas e inteligentes. Leve suas análises a um novo nível.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/analise-de-dados-no-power-bi" target="_blank">Acessar curso</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Trilha Linguagem Python (53h)</h2>
+        <div class="grid-container">
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">webhook</span></span>
+                    Introdução à POO <span class="level-tag intermediate">Intermediário</span>
+                </h3>
+                <p>Conheça os <strong>fundamentos da Programação Orientada a Objetos (POO)</strong>, um pilar essencial para o desenvolvimento de software moderno. Essencial para criar código escalável e modular.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/introducao-a-programacao-orientada-a-objetos-poo" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">terminal</span></span>
+                    Python Básico <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Dê seus primeiros passos em <strong>Python</strong>! Aprenda <strong>lógica de programação</strong> e os fundamentos da linguagem utilizando o ambiente <strong>PyCharm</strong>. Ideal para quem está começando na programação.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/linguagem-de-programacao-python-basico" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">data_array</span></span>
+                    Desenvolvimento POO com Python <span class="level-tag intermediate">Intermediário</span>
+                </h3>
+                <p>Aplique na prática os <strong>conceitos de POO em Python</strong>, desenvolvendo projetos que utilizam a programação orientada a objetos. Construa aplicações mais robustas e organizadas.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/desenvolvimento-orientado-a-objetos-utilizando-a-linguagem-python" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">design_services</span></span>
+                    Criando um Projeto com Interface Gráfica <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Crie <strong>aplicações com interface gráfica</strong> impressionantes utilizando a biblioteca <strong>Kivy</strong> em Python, dando vida aos seus projetos. Desenvolva interfaces intuitivas e funcionais.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/Desenvolvendo-um-Projeto-Completo-Python-com-Estruturas-de-Dados" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">storage</span></span>
+                    Desenvolvendo um Projeto Completo Python com Estruturas de Dados <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Aprenda a <strong>manipular dados com SQL e SQLite em Python</strong>, desenvolvendo projetos que integram gerenciamento de banco de dados. Construa soluções completas com persistência de dados.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/Desenvolvendo-um-Projeto-Completo-Python-com-Estruturas-de-Dados" target="_blank">Acessar curso</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Trilha Segurança da Informação</h2>
+        <div class="grid-container">
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">security</span></span>
+                    Segurança em TI <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Entenda os <strong>fundamentos da segurança em Tecnologia da Informação</strong> e como proteger sistemas e dados contra ameaças. Um conhecimento essencial no mundo digital.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/seguranca-em-tecnologia-da-informacao" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">gavel</span></span>
+                    Lei Geral de Proteção de Dados <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Compreenda a <strong>Lei Geral de Proteção de Dados (LGPD)</strong> e sua importância para a privacidade e segurança das informações no Brasil. Mantenha-se atualizado com as leis de privacidade.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/lei-geral-de-protecao-de-dados-lgpd" target="_blank">Acessar curso</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Trilha Primeiros Passos em Tecnologia</h2>
+        <div class="grid-container">
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">desktop_windows</span></span>
+                    Fundamentos de TI: Hardware e Software <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Explore os <strong>conceitos essenciais de hardware e software</strong> que sustentam o mundo da Tecnologia da Informação. A base para qualquer profissional de TI.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/fundamentos-de-ti-hardware-e-software" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">laptop_mac</span></span>
+                    Letramento Digital <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Desenvolva suas <strong>habilidades digitais</strong> e torne-se mais proficiente no uso de ferramentas e recursos online. Essencial para o mercado de trabalho atual.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/letramento-digital" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">public</span></span>
+                    Cultura Digital <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Entenda o impacto da <strong>tecnologia na sociedade</strong> e as tendências que moldam nosso mundo digital. Amplie sua visão sobre o universo conectado.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/cultura-digital" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">share</span></span>
+                    SharePoint <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Aprenda a utilizar o <strong>SharePoint</strong> para colaboração e organização de documentos em ambientes corporativos. Otimize o fluxo de trabalho em equipe.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/sharepoint" target="_blank">Acessar curso</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Cursos Individuais do Pacote Office 2016</h2>
+        <div class="grid-container">
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">grid_on</span></span>
+                    Excel 2016 <span class="level-tag basic">Básico</span>
+                </h3>
+                <p>Domine os <strong>fundamentos do Microsoft Excel 2016</strong>. Aprenda a criar planilhas, formatar células, inserir dados e realizar cálculos simples.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/microsoft-excel-2016-basico" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">grid_on</span></span>
+                    Excel 2016 <span class="level-tag intermediate">Intermediário</span>
+                </h3>
+                <p>Aprofunde seus conhecimentos em <strong>Excel 2016</strong>. Explore funções avançadas, tabelas dinâmicas, gráficos complexos e validação de dados.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/microsoft-excel-2016-intermediario" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">grid_on</span></span>
+                    Excel 2016 <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Torne-se um especialista em <strong>Excel 2016</strong>. Aprenda a usar macros, VBA, Power Query e desenvolver dashboards interativos para análises poderosas.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/microsoft-excel-2016-avancado" target="_blank">Acessar curso</a>
+            </div>
+
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">article</span></span>
+                    Word 2016 <span class="level-tag basic">Básico</span>
+                </h3>
+                <p>Aprenda a criar e editar documentos no <strong>Microsoft Word 2016</strong>. Conheça as ferramentas essenciais de formatação, revisão e layout para textos profissionais.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/microsoft-word-2016-basico" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">article</span></span>
+                    Word 2016 <span class="level-tag intermediate">Intermediário</span>
+                </h3>
+                <p>Explore recursos intermediários do <strong>Word 2016</strong>. Trabalhe com estilos, sumários, tabelas, imagens e mala direta para documentos mais complexos.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/microsoft-word-2016-intermediario" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">article</span></span>
+                    Word 2016 <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Domine o <strong>Word 2016</strong> com recursos avançados. Aprenda sobre campos, macros, formulários e integração com outras ferramentas para automação de documentos.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/microsoft-word-2016-avancado" target="_blank">Acessar curso</a>
+            </div>
+
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">slideshow</span></span>
+                    PowerPoint 2016 <span class="level-tag basic">Básico</span>
+                </h3>
+                <p>Crie apresentações eficazes no <strong>Microsoft PowerPoint 2016</strong>. Aprenda a estruturar slides, adicionar texto, imagens, formas e transições básicas.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/microsoft-powerpoint-2016-basico" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">slideshow</span></span>
+                    PowerPoint 2016 <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Desenvolva apresentações dinâmicas e interativas no <strong>PowerPoint 2016</strong>. Explore recursos avançados como multimídia, animações personalizadas e gravação de apresentação.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/microsoft-powerpoint-2016-avancado" target="_blank">Acessar curso</a>
+            </div>
+        </div>
+    </section>
+<section>
+    <h2>Trilha Office na Prática</h2>
+    <div class="grid-container">
+        <div class="curso">
+            <h3>
+                <span class="icon"><span class="material-symbols-outlined">grid_on</span></span>
+                Excel na Prática <span class="level-tag basic">Iniciante</span>
+            </h3>
+            <p>Este curso prático de <strong>Microsoft Excel</strong> proporciona o aprendizado dos principais recursos da ferramenta, aplicados em três grandes temas. O foco é capacitar você a <strong>criar uma planilha personalizada de orçamento doméstico</strong>, utilizando fórmulas, funções e gráficos. Ao final do curso, você estará apto a <strong>organizar suas finanças pessoais</strong> com eficiência, uma habilidade valorizada no mercado. <br><br><strong>Temas abordados:</strong><br>
+            <a class="link" href="https://www.ev.org.br/cursos/excel-na-pratica" target="_blank">Acessar curso</a>
+        </div>
+
+        <div class="curso">
+            <h3>
+                <span class="icon"><span class="material-symbols-outlined">slideshow</span></span>
+                PowerPoint na Prática <span class="level-tag basic">Iniciante</span>
+            </h3>
+            <p>O <strong>Microsoft PowerPoint</strong> é essencial para comunicar ideias de forma visual e impactante. Neste curso prático, você aprenderá os principais recursos como <strong>designers, layouts, formatações de texto, animações e transições</strong>. O objetivo é capacitá-lo a criar <strong>apresentações profissionais</strong>, organizadas e envolventes. <br><br><strong>Temas abordados:</strong><br>
+            <a class="link" href="https://www.ev.org.br/cursos/powerpoint-na-pratica" target="_blank">Acessar curso</a>
+        </div>
+
+        <div class="curso">
+            <h3>
+                <span class="icon"><span class="material-symbols-outlined">description</span></span>
+                Word na Prática <span class="level-tag basic">Iniciante</span>
+            </h3>
+            <p>Este curso prático de <strong>Microsoft Word</strong> oferece o domínio dos principais recursos da ferramenta por meio da elaboração de um <strong>currículo profissional</strong>. Você aprenderá a estruturar suas informações de forma organizada e clara, desenvolvendo um documento essencial para o mercado de trabalho. <br><br><strong>Temas abordados:</strong><br>
+            <a class="link" href="https://www.ev.org.br/cursos/word-na-pratica" target="_blank">Acessar curso</a>
+        </div>
+    </div>
+</section>
+    <section>
+        <h2>Trilha Finanças</h2>
+        <div class="grid-container">
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">calculate</span></span>
+                    Matemática Financeira com a HP 12C <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Ideal para quem deseja dominar os conceitos fundamentais da <strong>matemática financeira</strong> aplicada ao cotidiano e ao mercado, com teoria e prática por meio da calculadora <strong>HP 12C</strong>.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/matematica-financeira-com-o-uso-da-hp-12c" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">account_balance</span></span>
+                    Contabilidade Empresarial <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Este curso apresenta os <strong>princípios contábeis fundamentais</strong> e o papel da <strong>contabilidade na gestão empresarial</strong>. Ideal para profissionais que desejam compreender as demonstrações contábeis e os principais relatórios usados para análise e tomada de decisão.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/Contabilidade-Empresarial" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">trending_up</span></span>
+                    Análise de Balanços <span class="level-tag advanced">Avançado</span>
+                </h3>
+                <p>Aprenda a interpretar o <strong>Balanço Patrimonial</strong> de uma empresa com técnicas rápidas e eficientes, essenciais para uma tomada de decisão precisa. O curso aborda indicadores financeiros, capital de giro, fluxo de caixa e demonstrações fundamentais para avaliar a saúde financeira e planejar negócios.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/Analise-de-Balan%C3%A7os" target="_blank">Acessar curso</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Trilha Administração no Século 21</h2>
+        <div class="grid-container">
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">corporate_fare</span></span>
+                    Introdução à Administração <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Desde o século XVIII, a Administração evolui com base em teorias e métodos científicos. Este curso apresenta os <strong>fundamentos da administração moderna</strong>, abordando os sistemas produtivos, o papel dos gestores, os recursos organizacionais e as principais teorias administrativas que moldaram o pensamento estratégico no século XXI.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/introducao-a-administracao" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">task</span></span>
+                    Introdução à Gestão de Projetos <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Aprenda os <strong>fundamentos do gerenciamento de projetos</strong>, com foco em eficiência, planejamento e controle. O curso apresenta o conceito de projeto, o ciclo de vida, as fases do gerenciamento e as nove áreas de conhecimento do PMI.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/introducao-a-gestao-de-projetos" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">lightbulb</span></span>
+                    Empreendedorismo e Inovação <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Neste curso, você vai entender por que vivemos na chamada "Era do Empreendedor" e como a <strong>inovação, a cultura organizacional e um bom Plano de Negócios</strong> são essenciais para transformar ideias em oportunidades reais.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/empreendedorismo-e-inovacao" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">eco</span></span>
+                    Responsabilidade Social e Sustentabilidade <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Este curso apresenta o surgimento e a evolução da <strong>consciência ambiental</strong>, destacando o papel de pessoas e empresas na preservação do meio ambiente.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/responsabilidade-social-e-sustentabilidade" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">strategy</span></span>
+                    Estratégia de Negócios <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Descubra como a <strong>estratégia</strong> transforma ideias em resultados. Este curso apresenta conceitos essenciais da administração moderna e a Estratégia do Oceano Azul. Ideal para quem busca vantagem competitiva e uma visão clara sobre o papel estratégico da gestão.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/estrategia-de-negocios" target="_blank">Acessar curso</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Cursos Separados Fundação Bradesco</h2>
+        <div class="grid-container">
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">code</span></span>
+                    Crie um site simples usando HTML, CSS e Javascript <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Neste curso, você aprenderá os fundamentos do desenvolvimento para a Web, utilizando <strong>HTML, CSS e Javascript</strong> para criar sites e aplicativos.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">robot</span></span>
+                    Inteligência Artificial para Pequenas e Médias Empresas <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Descubra como a <strong>Inteligência Artificial</strong> pode transformar seu negócio, aumentando a produtividade, reduzindo custos e personalizando a experiência dos clientes.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/pmes" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">neurology</span></span>
+                    FluêncIA <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Entenda os fundamentos da <strong>Inteligência Artificial Generativa</strong>, sua história, aplicações práticas e como usar ferramentas como o Bing Chat para aumentar sua produtividade.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/fluencia" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">palette</span></span>
+                    Fundamentos do Design Gráfico <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Neste curso introdutório, você aprenderá os conceitos essenciais como composição, tratamento de imagens, teoria das cores e tipografia.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/fundamentos-do-design-grafico" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">wysiwyg</span></span>
+                    Projetos de Sistema de TI <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Neste curso, você aprenderá diferentes metodologias para <strong>projetar sistemas complexos</strong>, além de conceitos essenciais como levantamento de requisitos e construção de diagramas de fluxo de dados (DFD).</p>
+                <a class="link" href="https://www.ev.org.br/cursos/projetos-de-sistemas-de-ti" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">hub</span></span>
+                    Soluções de IA no GitHub <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Aprenda sobre o <strong>GitHub Copilot</strong>, o ambiente de desenvolvimento em nuvem do GitHub Codespaces e as GitHub Actions para automatizar processos.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/github" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">cloud</span></span>
+                    AI-900 – Fundamentos de IA no Azure <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>O curso apresenta os principais conceitos e aplicações da <strong>Inteligência Artificial no Microsoft Azure</strong>. Você aprenderá sobre aprendizado de máquina, visão computacional, processamento de linguagem natural e agentes de conversa.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/AI900Azure" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">groups</span></span>
+                    Inteligência Artificial e o Novo Contexto da Cultura Digital <span class="level-tag basic">Iniciante</span>
+                </h3>
+                <p>Este curso apresenta a nova <strong>cultura digital</strong>, explica conceitos como <strong>direitos digitais, LGPD e o Marco Civil da Internet</strong>.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/inteligencia-artificial-e-o-novo-contexto-da-cultura-digital" target="_blank">Acessar curso</a>
+            </div>
+            <div class="curso">
+                <h3>
+                    <span class="icon"><span class="material-symbols-outlined">phone_android</span></span>
+                    Desenvolvendo Aplicações Mobile com Android Studio <span class="level-tag intermediate">Intermediário</span>
+                </h3>
+                <p>Neste curso, você conhecerá as principais <strong>plataformas para desenvolvimento mobile e o Android Studio</strong>, usado na prática para criar aplicativos.</p>
+                <a class="link" href="https://www.ev.org.br/cursos/desenvolvendo-aplicacoes-mobile-com-android-studio" target="_blank">Acessar curso</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
