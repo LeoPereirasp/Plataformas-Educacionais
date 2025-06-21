@@ -30,6 +30,10 @@ Este repositório tem como objetivo centralizar e organizar **plataformas educac
 |----------------------------|-----------------------------|----------------|-----------------------------------------------|
 | Fundação Bradesco          | TI, Finanças, Dados       | ✅ Analisada    | Plataforma nacional robusta e gratuita         |
 | FIAP ON                    | Inovação, Tecnologia        | ⏳ Em andamento| Conteúdo moderno e acessível                   |
+| AWS Skill Builder          | Cloud, DevOps, IA           | 🔍 A verificar | Plataforma oficial da Amazon com cursos gratuitos e trilhas técnicas |
+| AWS Educate / re/Start     | Carreira em TI, Cloud       | 🔍 A verificar | Iniciativas da AWS com foco em iniciantes e empregabilidade |
+| GitHub Skills              | Git, GitHub, Dev Colaborativo| 🔍 A verificar | Cursos interativos dentro da própria plataforma GitHub |
+| GitHub Learning Lab        | Git, Projetos open source   | 🔍 A verificar | Laboratórios práticos com automações e projetos reais |
 | Oracle Learning            | Programação, Banco de Dados | 🔍 A verificar | Cursos oficiais da Oracle                     |
 | Cisco Networking Academy   | Redes, Cibersegurança       | 🔍 A verificar | Certificação técnica reconhecida               |
 | Google Ateliê Digital      | Marketing, Dados, Negócios  | 🔍 A verificar | Cursos com certificado do Google               |
